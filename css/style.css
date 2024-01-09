@@ -13,3 +13,9 @@ img {
     max-width: 100%;
     display: block;
 }
+
+label,
+select,
+#exercise-2 input {
+    cursor: pointer;
+}
