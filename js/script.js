@@ -1,21 +1,36 @@
-// // * Palindroma
-// // 1. Chiedere all’utente di inserire una parola (con un prompt)
+// * Palindroma
+// 1. Chiedere all’utente di inserire una parola (con un prompt)
 // const userWord = prompt("Inserisci una parola per verificare che sia palindroma", "aerea");
 
-// // 2. Creare una funzione per capire se la parola inserita è palindroma
-// function isPalindroma(word) {
-//     const splitWord = word.split("");
-//     const reverseWord = splitWord.reverse();
-//     const joinWord = reverseWord.join("");
-//     return joinWord === word;
-// }
+// 2. Creare una funzione per capire se la parola inserita è palindroma
+function isPalindroma(word) {
+    const splitWord = word.split("");
+    const reverseWord = splitWord.reverse();
+    const joinWord = reverseWord.join("");
+    return joinWord === word;
+}
 
-// // 3. Stampiamo il risultato in console
-// let message = "La parola inserita non è palindroma";
-// if (isPalindroma(userWord) === true) {
-//     message = "La parola inserita è palindroma";
-// }
-// console.log(message);
+// 1Bonus. Raccogliere le informazioni dall'utente usando form, input, button in pagina invece che coi prompt.
+const inputPalindroma = document.getElementById("input-palindroma");
+const buttonPalindroma = document.getElementById("go");
+const paragraphPalindroma = document.getElementById("result-palindroma");
+let userWord = "";
+buttonPalindroma.addEventListener("click", function() {
+    userWord = inputPalindroma.value;
+
+    // 3. Stampiamo il risultato in console
+    let message = "La parola inserita non è palindroma!";
+    if (isPalindroma(userWord) === true) {
+        message = "La parola inserita è palindroma!";
+    }
+    // console.log(message);
+    
+    // 3Bonus. Stampare i risultati in pagina, invece che in console
+    paragraphPalindroma.innerText = message;
+
+    // flush
+    inputPalindroma.value = "";
+});
 
 // // * Pari e Dispari
 // // 1. L’utente sceglie pari o dispari e inserisce un numero da 1 a 5. (con un prompt)
@@ -44,6 +59,6 @@
 // }
 // console.log(message2);
 
-// // * Bonus
-// // 1. Raccogliere le informazioni dall'utente usando form, input, button in pagina invece che coi prompt.
-// // 2. Stampare i risultati in pagina, invece che in console
+// * Bonus
+// 1. Raccogliere le informazioni dall'utente usando form, input, button in pagina invece che coi prompt.
+// 2. Stampare i risultati in pagina, invece che in console
